@@ -1,8 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy landing to GitHub Pages
 
 on:
   push:
     branches: [main]
+    paths:
+      - apps/landing/**
+      - packages/shared-theme/**
+      - bun.lock
   workflow_dispatch:
 
 permissions:
@@ -30,18 +34,12 @@ jobs:
       - run: bun install
 
       - run: bun run --filter landing build
-      - run: bun run --filter purr-docs build
-
-      - run: |
-          mkdir -p _site/purr
-          cp -r apps/landing/dist/* _site/
-          cp -r apps/purr-docs/dist/* _site/purr/
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: apps/landing/dist
 
       - id: deploy
         uses: actions/deploy-pages@v4

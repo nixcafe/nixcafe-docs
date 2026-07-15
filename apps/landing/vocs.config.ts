@@ -17,7 +17,7 @@ export default defineConfig({
     {
       text: 'Projects',
       items: [
-        { text: 'purr', link: '/purr' },
+        { text: 'purr', link: 'https://purr.nixcafe.org' },
       ],
     },
     {
