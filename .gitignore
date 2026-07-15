@@ -1,0 +1,15 @@
+.direnv/
+result
+result-*
+/.pre-commit-config.yaml
+
+node_modules/
+
+# Vocs generated
+**/src/pages.gen.ts
+
+# Vite cache
+.vite/
+
+# Cache
+.vocs/

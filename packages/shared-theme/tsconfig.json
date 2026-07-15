@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "Preserve",
+    "types": ["bun"],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  }
+}
