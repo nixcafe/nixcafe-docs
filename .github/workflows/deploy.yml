@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/landing/dist
+          path: apps/landing/dist/public
 
       - id: deploy
         uses: actions/deploy-pages@v4
