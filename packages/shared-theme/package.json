@@ -1,5 +1,6 @@
 {
   "name": "shared-theme",
+  "version": "0.1.0",
   "module": "index.ts",
   "type": "module",
   "private": true,
@@ -10,7 +11,7 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5",
+    "typescript": "^5 || ^7",
     "vocs": "latest"
   }
 }
