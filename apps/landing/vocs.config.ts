@@ -7,6 +7,7 @@ export default defineConfig({
     baseUrl: 'https://nixcafe.org',
   }),
   description: 'nixcafe — Nix scaffolding tools and frameworks for modern development',
+  renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   sidebar: [
     {
@@ -16,7 +17,7 @@ export default defineConfig({
     {
       text: 'Projects',
       items: [
-        { text: 'purr', link: 'https://docs.nixcafe.org/purr' },
+        { text: 'purr', link: '/purr' },
       ],
     },
     {

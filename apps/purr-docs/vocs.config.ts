@@ -4,9 +4,11 @@ import { defineNixcafeTheme } from 'shared-theme'
 export default defineConfig({
   ...defineNixcafeTheme({
     title: 'purr',
-    baseUrl: 'https://docs.nixcafe.org/purr',
+    baseUrl: 'https://nixcafe.org/purr',
   }),
   description: 'purr — Nix flake framework with automatic discovery and module system',
+  basePath: '/purr',
+  renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   sidebar: [
     {
