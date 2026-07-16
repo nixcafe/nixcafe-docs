@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0d0d0d;
+  --text: #c2c2c2;
+  --text-dull: #7a7a7a;
+  --text-faint: #454545;
+  --rule: #1f1f1f;
+}
+
+:root[style*="color-scheme:dark"],
+:root[style*="color-scheme: dark"] {
+  --vocs-font-family: "Inter", system-ui, -apple-system, sans-serif;
+  --vocs-font-family-mono: "IBM Plex Mono", monospace;
+  --vocs-background-color-primary: var(--bg);
+  --vocs-text-color-primary: var(--text);
+  --vocs-text-color-secondary: var(--text-dull);
+  --vocs-border-color-primary: var(--rule);
+  --vocs-color-accent: var(--text-dull);
+}
+
+html {
+  background: var(--bg);
+}
+body {
+  background: var(--bg);
+}
+
+/* ===== Content wrapper for blank layout ===== */
+#vocs-content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+
+::selection {
+  background: #2a2a2a;
+  color: #d4d4d4;
+}
+
+/* ===== Custom nav ===== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+
+.nav-logo {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.875rem;
+  color: #d4d4d4;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8125rem;
+  color: var(--text-dull);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 5rem 0 0;
+}
+
+.hero h1 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 400;
+  color: #e0e0e0;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: var(--text-dull);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-top: 1rem;
+}
+
+/* ===== Section ===== */
+.section {
+  margin-top: 4rem;
+}
+
+.section h2 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 1rem;
+}
+
+/* ===== Horizontal rule ===== */
+.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}
+
+/* ===== Project ===== */
+.project {
+  display: block;
+}
+
+.project h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #d4d4d4;
+  margin: 0 0 0.25rem;
+}
+
+.project p {
+  font-size: 0.925rem;
+  color: var(--text-dull);
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+  max-width: 540px;
+}
+
+.project a {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: all 0.15s ease;
+}
+
+.project a:hover {
+  color: var(--text);
+  border-color: var(--text-dull);
+}
+
+/* ===== Philosophy list ===== */
+.philo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 3rem;
+}
+
+@media (max-width: 600px) {
+  .philo-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.philo-list li {
+  font-size: 0.925rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.philo-list li strong {
+  display: block;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #d4d4d4;
+}
+
+.philo-list li .d {
+  display: block;
+  color: var(--text-dull);
+  font-size: 0.8125rem;
+  margin-top: 0.15rem;
+}
+
+/* ===== Community ===== */
+.comm {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.comm a {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8125rem;
+  color: var(--text-dull);
+  text-decoration: none;
+}
+
+.comm a:hover {
+  color: var(--text);
+}

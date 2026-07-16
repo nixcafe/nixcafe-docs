@@ -6,6 +6,7 @@ export default defineConfig({
     title: 'nixcafe',
     baseUrl: 'https://nixcafe.org',
   }),
+  accentColor: '#888888',
   description: 'nixcafe — Nix scaffolding tools and frameworks for modern development',
   renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
