@@ -18,5 +18,18 @@ export function defineNixcafeTheme({ title, baseUrl }: ThemeOptions) {
       dark: '/logo-dark.svg',
     },
     socials: [{ icon: 'github' as const, link: 'https://github.com/nixcafe' }],
+    head: () => ({
+      meta: {
+        ogType: 'website',
+        ogSiteName: 'nixcafe',
+        twitterCard: 'summary_large_image',
+        twitterSite: '@nixcafe',
+        author: 'nixcafe',
+        robots: 'index, follow',
+        referrer: 'origin-when-cross-origin',
+        themeColor: '#0d0d0d',
+      },
+      link: [{ rel: 'sitemap', type: 'application/xml', href: `${baseUrl}/sitemap.xml` }],
+    }),
   }
 }
