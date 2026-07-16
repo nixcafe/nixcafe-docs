@@ -17,8 +17,6 @@ export function defineNixcafeTheme({ title, baseUrl }: ThemeOptions) {
       light: '/logo.svg',
       dark: '/logo-dark.svg',
     },
-    socials: [
-      { icon: 'github' as const, link: 'https://github.com/nixcafe' },
-    ],
+    socials: [{ icon: 'github' as const, link: 'https://github.com/nixcafe' }],
   }
 }

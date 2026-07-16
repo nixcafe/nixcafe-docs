@@ -44,12 +44,25 @@ bun run --filter purr-docs dev
 ## Build
 
 ```bash
-bun build
+bun run build
+```
+
+## Checks
+
+```bash
+bun fmt         # format all files
+bun lint        # lint all files
+bun check       # biome check (format + lint, read-only)
+bun typecheck   # TypeScript type checking
+bun test        # run tests
+bun ci:check    # full PR pipeline (biome + typecheck + test)
 ```
 
 ## Tech Stack
 
 - [Vocs](https://vocs.dev) — Static documentation generator
 - [Bun](https://bun.com) — Package manager & workspace orchestration
+- [Biome](https://biomejs.dev) — Formatter & linter
+- [TypeScript](https://www.typescriptlang.org) — Type checking
 - [purr](https://github.com/nixcafe/purr) — Nix flake framework
 - [git-hooks.nix](https://github.com/cachix/git-hooks.nix) — Pre-commit hooks

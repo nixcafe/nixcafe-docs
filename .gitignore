@@ -5,6 +5,9 @@ result-*
 
 node_modules/
 
+# Build output
+dist/
+
 # Vocs generated
 **/src/pages.gen.ts
 

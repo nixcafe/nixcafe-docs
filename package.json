@@ -1,12 +1,21 @@
 {
   "name": "nixcafe-docs",
   "private": true,
+  "scripts": {
+    "dev": "bun run --filter '*' dev",
+    "build": "bun run --filter '*' build",
+    "test": "bun test",
+    "typecheck": "bun run --filter '*' typecheck",
+    "fmt": "biome format --write .",
+    "lint": "biome lint .",
+    "check": "biome check .",
+    "ci:check": "biome ci . && bun typecheck && bun test"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "scripts": {
-    "dev": "bun run --filter '*' dev",
-    "build": "bun run --filter '*' build"
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.4"
   }
 }

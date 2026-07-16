@@ -1,5 +1,5 @@
-import { defineConfig } from 'vocs/config'
 import { defineNixcafeTheme } from 'shared-theme'
+import { defineConfig } from 'vocs/config'
 
 export default defineConfig({
   ...defineNixcafeTheme({
@@ -16,15 +16,11 @@ export default defineConfig({
     },
     {
       text: 'Projects',
-      items: [
-        { text: 'purr', link: 'https://purr.nixcafe.org' },
-      ],
+      items: [{ text: 'purr', link: 'https://purr.nixcafe.org' }],
     },
     {
       text: 'Community',
-      items: [
-        { text: 'GitHub', link: 'https://github.com/nixcafe' },
-      ],
+      items: [{ text: 'GitHub', link: 'https://github.com/nixcafe' }],
     },
   ],
   editLink: {
