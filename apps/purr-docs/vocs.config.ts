@@ -7,6 +7,7 @@ export default defineConfig({
     baseUrl: 'https://purr.nixcafe.org',
   }),
   description: 'purr — Nix flake framework with automatic discovery and module system',
+  renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   sidebar: [
     {

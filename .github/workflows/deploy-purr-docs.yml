@@ -1,0 +1,33 @@
+name: Deploy purr-docs to nixcafe/purr
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/purr-docs/**
+      - packages/shared-theme/**
+      - .github/workflows/deploy-purr-docs.yml
+      - bun.lock
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+
+      - run: bun run --filter purr-docs build
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.PURR_DEPLOY_TOKEN }}
+          external_repository: nixcafe/purr
+          publish_branch: gh-pages
+          publish_dir: apps/purr-docs/dist/public
+          cname: purr.nixcafe.org
