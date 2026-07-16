@@ -16,8 +16,13 @@ Follow **GitHub Flow** — all contributions go through feature branches and pul
 
 ## Before Submitting
 
-- Run `bun build` to verify all sites build
-- Run `bunx tsc --noEmit` in each workspace to check types
+- Run `bun ci:check` to run the full pipeline (biome + typecheck + test)
+- Or run individually:
+  - `bun fmt` — format all files
+  - `bun lint` — lint all files
+  - `bun check` — format + lint
+  - `bun typecheck` — verify TypeScript types
+  - `bun test` — run tests
 
 ## Commit Style
 

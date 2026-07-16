@@ -5,7 +5,34 @@
   ...
 }:
 let
-  commitCheck = inputs.self.checks.${system}.git-hooks.shellHook;
+  commitHooks = inputs.git-hooks.lib.${system}.run {
+    src = ../../..;
+
+    hooks = {
+      biome = {
+        enable = true;
+        name = "biome";
+        entry = "${pkgs.biome}/bin/biome ci .";
+        pass_filenames = false;
+      };
+
+      typecheck = {
+        enable = true;
+        name = "TypeScript typecheck";
+        entry = "bun typecheck";
+        files = "\\.(ts|tsx)$";
+        pass_filenames = false;
+      };
+
+      test = {
+        enable = true;
+        name = "bun test";
+        entry = "bun test";
+        files = "\\.(ts|tsx)$";
+        pass_filenames = false;
+      };
+    };
+  };
 in
 pkgs.mkShell {
   packages = with pkgs; [
@@ -16,17 +43,15 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    ${commitCheck}
+    ${commitHooks.shellHook}
 
-    # Add node_modules/.bin to PATH if it exists
     if [ -d "$PWD/node_modules/.bin" ]; then
       export PATH="$PWD/node_modules/.bin:$PATH"
     fi
 
-    # Disable download prompt for corepack
     export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
-    echo "node version: `${pkgs.nodejs}/bin/node --version`"
+    echo "node version: ${pkgs.nodejs}/bin/node --version"
   '';
 
-  buildInputs = inputs.self.checks.${system}.git-hooks.enabledPackages;
+  buildInputs = commitHooks.enabledPackages;
 }

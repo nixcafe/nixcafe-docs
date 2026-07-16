@@ -1,11 +1,12 @@
-import { defineConfig } from 'vocs/config'
 import { defineNixcafeTheme } from 'shared-theme'
+import { defineConfig } from 'vocs/config'
 
 export default defineConfig({
   ...defineNixcafeTheme({
     title: 'nixcafe',
     baseUrl: 'https://nixcafe.org',
   }),
+  accentColor: '#888888',
   description: 'nixcafe — Nix scaffolding tools and frameworks for modern development',
   renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
@@ -16,15 +17,11 @@ export default defineConfig({
     },
     {
       text: 'Projects',
-      items: [
-        { text: 'purr', link: 'https://purr.nixcafe.org' },
-      ],
+      items: [{ text: 'purr', link: 'https://purr.nixcafe.org' }],
     },
     {
       text: 'Community',
-      items: [
-        { text: 'GitHub', link: 'https://github.com/nixcafe' },
-      ],
+      items: [{ text: 'GitHub', link: 'https://github.com/nixcafe' }],
     },
   ],
   editLink: {

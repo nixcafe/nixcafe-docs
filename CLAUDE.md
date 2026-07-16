@@ -1,4 +1,3 @@
-
 Default to using Bun instead of Node.js.
 
 - Use `bun <file>` instead of `node <file>` or `ts-node <file>`
@@ -15,24 +14,33 @@ This is a **monorepo** using Bun workspaces. All dependencies are installed at t
 
 ### Workspaces
 
-| Workspace | Path | Purpose |
-|-----------|------|---------|
-| `landing` | `apps/landing/` | nixcafe.org — landing page & project hub |
-| `purr-docs` | `apps/purr-docs/` | purr framework documentation |
-| `shared-theme` | `packages/shared-theme/` | shared Vocs theme config |
+| Workspace      | Path                     | Purpose                                  |
+| -------------- | ------------------------ | ---------------------------------------- |
+| `landing`      | `apps/landing/`          | nixcafe.org — landing page & project hub |
+| `purr-docs`    | `apps/purr-docs/`        | purr framework documentation             |
+| `shared-theme` | `packages/shared-theme/` | shared Vocs theme config                 |
 
 ### Commands
 
 - `bun dev` — start all doc sites in dev mode
 - `bun run --filter <workspace> dev` — start a specific site (e.g., `landing`, `purr-docs`)
-- `bun build` — build all sites
+- `bun run build` — build all sites
+- `bun fmt` — format all files with biome
+- `bun lint` — lint all files with biome
+- `bun check` — format check + lint (read-only)
+- `bun typecheck` — run tsc --noEmit across all workspaces
+- `bun test` — run all tests
+- `bun ci:check` — full PR check pipeline (biome ci + typecheck + test)
 
 ### Tech Stack
 
 - **Vocs** (vocs.dev) — static documentation generator (React + MDX + Waku)
 - **Bun** — package manager & workspace orchestration
-- **Nix** — dev environment & dependency management (`flake.nix`)
+- **Biome** — formatter & linter (biome.json)
+- **TypeScript** — type checking via tsc
+- **Nix** — dev environment & dependency management (flake.nix)
 - **purr** — Nix flake framework with automatic discovery
+- **git-hooks.nix** — pre-commit hooks (biome + typecheck + test)
 
 ### Adding New Doc Sites
 

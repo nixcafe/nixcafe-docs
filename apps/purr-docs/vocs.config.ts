@@ -1,5 +1,5 @@
-import { defineConfig } from 'vocs/config'
 import { defineNixcafeTheme } from 'shared-theme'
+import { defineConfig } from 'vocs/config'
 
 export default defineConfig({
   ...defineNixcafeTheme({
