@@ -166,6 +166,13 @@ h3 {
   border-color: var(--text-dull);
 }
 
+.project .cmd {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8125rem;
+  color: var(--text-faint);
+  margin: 0.5rem 0 0.75rem;
+}
+
 /* ===== Philosophy list ===== */
 .philo-list {
   list-style: none;
@@ -217,4 +224,9 @@ h3 {
 
 .comm a:hover {
   color: var(--text);
+}
+
+/* ===== Spacing utilities ===== */
+.mt-3 {
+  margin-top: 2rem;
 }

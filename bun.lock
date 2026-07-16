@@ -8,6 +8,25 @@
         "@biomejs/biome": "^2.5.4",
       },
     },
+    "apps/develop-templates": {
+      "name": "develop-templates-docs",
+      "version": "0.1.0",
+      "dependencies": {
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "shared-theme": "workspace:*",
+        "vocs": "^2.5.3",
+        "waku": "^1.0.0-beta.6",
+      },
+      "devDependencies": {
+        "@types/node": "^26.1.1",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^6.0.3",
+        "typescript": "^7.0.2",
+        "vite": "^8.1.4",
+      },
+    },
     "apps/landing": {
       "name": "landing",
       "version": "0.1.0",
@@ -790,6 +809,8 @@
     "dequal": ["dequal@2.0.3", "", {}, "sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA=="],
 
     "detect-libc": ["detect-libc@2.1.2", "", {}, "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="],
+
+    "develop-templates-docs": ["develop-templates-docs@workspace:apps/develop-templates"],
 
     "devlop": ["devlop@1.1.0", "", { "dependencies": { "dequal": "^2.0.0" } }, "sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA=="],
 
