@@ -217,8 +217,6 @@ h3 {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.875rem;
   color: #d4d4d4;
-  white-space: nowrap;
-  min-width: 150px;
   flex-shrink: 0;
 }
 
