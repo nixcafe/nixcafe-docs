@@ -22,12 +22,52 @@
 html {
   background: var(--bg);
 }
+
+/* ===== Ambient lighting ===== */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse 80% 30% at 50% 0%,
+      rgba(255, 255, 255, 0.018) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 15% 50%,
+      rgba(255, 255, 255, 0.008) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 35% 35% at 85% 60%,
+      rgba(255, 255, 255, 0.006) 0%,
+      transparent 60%
+    );
+}
+
 body {
   background: var(--bg);
 }
 
+/* ===== Background overlay: washi paper grain ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.0 0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='0.028'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+}
+
 /* ===== Content wrapper for blank layout ===== */
 #vocs-content {
+  position: relative;
+  z-index: 1;
   max-width: 680px;
   margin: 0 auto;
   padding: 0 2rem 4rem;
@@ -56,7 +96,28 @@ h3 {
   color: #d4d4d4;
 }
 
-/* ===== Custom nav ===== */
+/* ===== Page enter animation ===== */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero {
+  animation: fade-up 0.6s ease-out both;
+}
+.section {
+  animation: fade-up 0.6s 0.1s ease-out both;
+}
+.footer {
+  animation: fade-up 0.6s 0.2s ease-out both;
+}
+
+/* ===== Nav ===== */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -109,124 +170,134 @@ h3 {
   margin-top: 1rem;
 }
 
-/* ===== Section ===== */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.hero-tags span {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6875rem;
+  color: var(--text-faint);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.25rem 0.625rem;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.hero-tags span:hover {
+  border-color: #333;
+  color: var(--text-dull);
+}
+
+/* ===== Section header ===== */
 .section {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 .section h2 {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 400;
   color: var(--text-faint);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
 }
 
-/* ===== Horizontal rule ===== */
-.rule {
-  border: none;
+/* ===== Project cards ===== */
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:first-child {
   border-top: 1px solid var(--rule);
-  margin: 3rem 0;
 }
 
-/* ===== Project ===== */
-.project {
-  display: block;
+.project-card:hover {
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
-.project h3 {
-  font-size: 1.1rem;
-  font-weight: 500;
+.project-name {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.875rem;
   color: #d4d4d4;
-  margin: 0 0 0.25rem;
+  white-space: nowrap;
+  min-width: 100px;
 }
 
-.project p {
-  font-size: 0.925rem;
+.project-desc {
+  font-size: 0.8125rem;
   color: var(--text-dull);
-  line-height: 1.6;
-  margin: 0 0 0.75rem;
-  max-width: 540px;
+  line-height: 1.55;
 }
 
-.project a {
+.project-arrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  margin-left: auto;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+}
+
+.project-card:hover .project-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project-cmd {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.71875rem;
+  color: var(--text-faint);
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.375rem 0.625rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 6rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-links a {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.75rem;
   color: var(--text-faint);
   text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 1px;
-  transition: all 0.15s ease;
+  transition: color 0.15s ease;
 }
 
-.project a:hover {
-  color: var(--text);
-  border-color: var(--text-dull);
-}
-
-.project .cmd {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8125rem;
-  color: var(--text-faint);
-  margin: 0.5rem 0 0.75rem;
-}
-
-/* ===== Philosophy list ===== */
-.philo-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem 3rem;
-}
-
-@media (max-width: 600px) {
-  .philo-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-.philo-list li {
-  font-size: 0.925rem;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.philo-list li strong {
-  display: block;
-  font-weight: 500;
-  font-size: 0.875rem;
-  color: #d4d4d4;
-}
-
-.philo-list li .d {
-  display: block;
+.footer-links a:hover {
   color: var(--text-dull);
-  font-size: 0.8125rem;
-  margin-top: 0.15rem;
-}
-
-/* ===== Community ===== */
-.comm {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.comm a {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8125rem;
-  color: var(--text-dull);
-  text-decoration: none;
-}
-
-.comm a:hover {
-  color: var(--text);
-}
-
-/* ===== Spacing utilities ===== */
-.mt-3 {
-  margin-top: 2rem;
 }
