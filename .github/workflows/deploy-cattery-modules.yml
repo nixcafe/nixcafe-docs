@@ -1,0 +1,33 @@
+name: Deploy cattery-modules-docs to nixcafe/cattery-modules
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/cattery-modules/**
+      - packages/shared-theme/**
+      - .github/workflows/deploy-cattery-modules.yml
+      - bun.lock
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+
+      - run: bun run --filter cattery-modules-docs build
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.CATTERY_MODULES_DEPLOY_TOKEN }}
+          external_repository: nixcafe/cattery-modules
+          publish_branch: gh-pages
+          publish_dir: apps/cattery-modules/dist/public
+          cname: cattery.nixcafe.org
