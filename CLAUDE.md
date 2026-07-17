@@ -14,16 +14,18 @@ This is a **monorepo** using Bun workspaces. All dependencies are installed at t
 
 ### Workspaces
 
-| Workspace      | Path                     | Purpose                                  |
-| -------------- | ------------------------ | ---------------------------------------- |
-| `landing`      | `apps/landing/`          | nixcafe.org — landing page & project hub |
-| `purr-docs`    | `apps/purr-docs/`        | purr framework documentation             |
-| `shared-theme` | `packages/shared-theme/` | shared Vocs theme config                 |
+| Workspace                  | Path                              | Purpose                                            |
+| -------------------------- | --------------------------------- | -------------------------------------------------- |
+| `landing`                  | `apps/landing/`                   | nixcafe.org — landing page & project hub           |
+| `purr-docs`                | `apps/purr-docs/`                 | purr framework documentation                       |
+| `develop-templates-docs`   | `apps/develop-templates/`         | develop-templates documentation                     |
+| `cattery-modules-docs`     | `apps/cattery-modules/`           | cattery-modules documentation                       |
+| `shared-theme`             | `packages/shared-theme/`          | shared Vocs theme config                           |
 
 ### Commands
 
 - `bun dev` — start all doc sites in dev mode
-- `bun run --filter <workspace> dev` — start a specific site (e.g., `landing`, `purr-docs`)
+- `bun run --filter <workspace> dev` — start a specific site (e.g., `landing`, `purr-docs`, `develop-templates-docs`)
 - `bun run build` — build all sites
 - `bun fmt` — format all files with biome
 - `bun lint` — lint all files with biome
