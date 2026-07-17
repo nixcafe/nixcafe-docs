@@ -4,75 +4,49 @@ description: Nix scaffolding tools and frameworks
 layout: blank
 ---
 
-<nav class="nav">
-  <a class="nav-logo" href="/">nixcafe</a>
-  <span class="nav-links">
-    <a href="https://purr.nixcafe.org">purr</a>
-    <a href="https://templates.nixcafe.org">templates</a>
+<nav className="nav">
+  <a className="nav-logo" href="/">nixcafe</a>
+  <span className="nav-links">
     <a href="https://github.com/nixcafe">github</a>
   </span>
 </nav>
 
-<div class="hero">
+<div className="hero">
   <h1>nixcafe</h1>
   <p>
-    Nix scaffolding tools and frameworks for modern development.
-    Opinionated tooling for reproducible builds, automatic flake discovery, and composable Nix modules.
+    Opinionated Nix tooling for modern development.
     Start from a single config, not a hundred lines of Nix.
   </p>
+  <div className="hero-tags">
+    <span>reproducible</span>
+    <span>composable</span>
+    <span>zero boilerplate</span>
+    <span>nix native</span>
+  </div>
 </div>
 
-<hr class="rule" />
-
-<div class="section">
+<div className="section">
   <h2>Projects</h2>
-
-  <div class="project">
-    <h3>purr</h3>
-    <p>
-      A Nix flake framework with automatic discovery. Supports both <strong>flake-parts</strong> imports and direct <strong>mkFlake</strong> usage. Comes with a rich module system for composing dev shells, checks, packages, and more.
-    </p>
-    <a href="https://purr.nixcafe.org">purr.nixcafe.org</a>
-  </div>
-
-  <div class="project mt-3">
-    <h3>develop-templates</h3>
-    <p>
-      A curated collection of Nix flake project templates. Bootstrap reproducible dev environments for Node.js, Python, Rust, Java, Kotlin, and more with a single command.
-    </p>
-    <p class="cmd">nix flake init -t beans#node</p>
-    <a href="https://templates.nixcafe.org">templates.nixcafe.org</a>
+  <div className="projects">
+    <a className="project-card" href="https://purr.nixcafe.org">
+      <span className="project-name">purr</span>
+      <span className="project-desc">Flake framework with automatic discovery and a rich module system</span>
+      <span className="project-arrow">&rarr;</span>
+    </a>
+    <a className="project-card" href="https://templates.nixcafe.org">
+      <span className="project-name">templates</span>
+      <span className="project-desc">
+        Curated Nix flake project templates for Node.js, Python, Rust, Java, and more
+        <code className="project-cmd">nix flake init -t beans#node</code>
+      </span>
+      <span className="project-arrow">&rarr;</span>
+    </a>
   </div>
 </div>
 
-<div class="section">
-  <h2>Philosophy</h2>
-
-  <ul class="philo-list">
-    <li>
-      <strong>Zero boilerplate</strong>
-      <span class="d">Start from a single config, not a hundred lines of Nix</span>
-    </li>
-    <li>
-      <strong>Automatic discovery</strong>
-      <span class="d">Your project structure defines your flake</span>
-    </li>
-    <li>
-      <strong>Composable</strong>
-      <span class="d">Mix and match modules like Lego blocks</span>
-    </li>
-    <li>
-      <strong>Nix native</strong>
-      <span class="d">Built on Nix fundamentals, no lock-in</span>
-    </li>
-  </ul>
-</div>
-
-<div class="section">
-  <h2>Community</h2>
-
-  <div class="comm">
+<footer className="footer">
+  <span className="footer-links">
     <a href="https://github.com/nixcafe">GitHub</a>
     <a href="https://github.com/nixcafe/.github/discussions">Discussions</a>
-  </div>
-</div>
+  </span>
+</footer>
