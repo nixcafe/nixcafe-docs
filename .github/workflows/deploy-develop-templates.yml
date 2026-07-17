@@ -1,0 +1,33 @@
+name: Deploy develop-templates-docs to nixcafe/develop-templates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/develop-templates/**
+      - packages/shared-theme/**
+      - .github/workflows/deploy-develop-templates.yml
+      - bun.lock
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install
+
+      - run: bun run --filter develop-templates-docs build
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEVELOP_TEMPLATES_DEPLOY_TOKEN }}
+          external_repository: nixcafe/develop-templates
+          publish_branch: gh-pages
+          publish_dir: apps/develop-templates/dist/public
+          cname: templates.nixcafe.org
