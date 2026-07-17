@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src", "vocs.config.ts"],
+  "exclude": ["src/pages.gen.ts"]
+}
