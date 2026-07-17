@@ -3,10 +3,10 @@ import { defineConfig } from 'vocs/config'
 
 export default defineConfig({
   ...defineNixcafeTheme({
-    title: 'cattery-modules',
+    title: 'cattery',
     baseUrl: 'https://cattery.nixcafe.org',
   }),
-  description: 'cattery-modules — quick-start NixOS configurations with room-based module bundles',
+  description: 'cattery — quick-start NixOS configurations with room-based module bundles',
   renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   head: () => ({
@@ -33,7 +33,7 @@ export default defineConfig({
           '@graph': [
             {
               '@type': 'SoftwareSourceCode',
-              name: 'cattery-modules',
+              name: 'cattery',
               description:
                 'Quick-start NixOS configurations — choose a room, get a complete system',
               url: 'https://cattery.nixcafe.org',
@@ -44,9 +44,9 @@ export default defineConfig({
             },
             {
               '@type': 'WebSite',
-              name: 'cattery-modules',
+              name: 'cattery',
               url: 'https://cattery.nixcafe.org',
-              description: 'cattery-modules — NixOS quick-start module documentation',
+              description: 'cattery — NixOS quick-start module documentation',
             },
           ],
         },
