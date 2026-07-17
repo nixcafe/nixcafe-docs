@@ -1,68 +1,50 @@
 # nixcafe-docs
 
-Documentation monorepo for [nixcafe](https://nixcafe.org) — Nix scaffolding tools and frameworks.
+Documentation monorepo for [nixcafe](https://nixcafe.org).
 
 ## Structure
 
 ```
 ├── apps/
-│   ├── landing/       # nixcafe.org — landing page & project hub
-│   └── purr-docs/     # docs.nixcafe.org/purr — purr framework docs
+│   ├── landing/              # nixcafe.org — landing page & project hub
+│   ├── purr-docs/             # purr.nixcafe.org — purr framework docs
+│   └── develop-templates/     # templates.nixcafe.org — flake templates docs
 ├── packages/
-│   └── shared-theme/  # shared Vocs theme config
+│   └── shared-theme/          # shared Vocs theme config
 ├── develop/
-│   ├── shells/        # Nix dev shell
-│   └── checks/        # Pre-commit hooks
-├── flake.nix          # Nix flake entry (uses purr/mkFlake)
-└── package.json       # Bun workspace root
+│   ├── shells/                # Nix dev shell
+│   └── checks/                # pre-commit hooks
+├── flake.nix                  # Nix flake (uses purr/mkFlake)
+└── package.json               # Bun workspace root
 ```
-
-## Prerequisites
-
-- [Nix](https://nixos.org/download) with flakes enabled
-- [direnv](https://direnv.net/) (optional, for auto-loading dev shell)
 
 ## Development
 
 ```bash
-# Enter dev shell (with Node.js, Bun, ni, and more)
-nix develop
-# or with direnv:
-direnv allow
+nix develop        # enter dev shell (or direnv allow)
 
-# Install dependencies
-bun install
-
-# Start all doc sites in dev mode
-bun dev
-
-# Or run a specific site
-bun run --filter landing dev
-bun run --filter purr-docs dev
+bun install        # install deps
+bun dev            # start all doc sites
+bun run --filter <name> dev  # start a specific site
 ```
 
-## Build
+## Commands
 
 ```bash
-bun run build
-```
-
-## Checks
-
-```bash
-bun fmt         # format all files
-bun lint        # lint all files
-bun check       # biome check (format + lint, read-only)
-bun typecheck   # TypeScript type checking
-bun test        # run tests
-bun ci:check    # full PR pipeline (biome + typecheck + test)
+bun fmt            # format all files
+bun lint           # lint all files
+bun check          # format + lint (read-only)
+bun typecheck      # TypeScript type checking
+bun test           # run tests
+bun ci:check       # full PR pipeline
+bun run build      # build all sites
 ```
 
 ## Tech Stack
 
-- [Vocs](https://vocs.dev) — Static documentation generator
-- [Bun](https://bun.com) — Package manager & workspace orchestration
-- [Biome](https://biomejs.dev) — Formatter & linter
-- [TypeScript](https://www.typescriptlang.org) — Type checking
+- [Vocs](https://vocs.dev) — static documentation generator
+- [Bun](https://bun.com) — package manager & workspace orchestration
+- [Biome](https://biomejs.dev) — formatter & linter
+- [TypeScript](https://www.typescriptlang.org) — type checking
 - [purr](https://github.com/nixcafe/purr) — Nix flake framework
-- [git-hooks.nix](https://github.com/cachix/git-hooks.nix) — Pre-commit hooks
+- [git-hooks.nix](https://github.com/cachix/git-hooks.nix) — pre-commit hooks
