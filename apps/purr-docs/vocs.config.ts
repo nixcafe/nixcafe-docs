@@ -60,7 +60,14 @@ export default defineConfig({
         { text: 'flake-parts Integration', link: '/flake-parts' },
         { text: 'mkFlake Usage', link: '/mkflake' },
         { text: 'Module System', link: '/modules' },
+        { text: 'Directory Structure', link: '/directory-structure' },
+        { text: 'Systems & Homes', link: '/systems-homes' },
       ],
+    },
+    {
+      text: 'Reference',
+      collapsed: false,
+      items: [{ text: 'API Reference', link: '/api' }],
     },
   ],
   editLink: {
