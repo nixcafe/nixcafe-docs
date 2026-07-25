@@ -65,7 +65,13 @@ export default defineConfig({
         { text: 'Quick Start', link: '/quick-start' },
         { text: 'Rooms', link: '/rooms' },
         { text: 'Modules', link: '/modules' },
+        { text: 'Secrets & agenix', link: '/secrets' },
       ],
+    },
+    {
+      text: 'Development',
+      collapsed: false,
+      items: [{ text: 'Contributing', link: '/contributing' }],
     },
   ],
   editLink: {
