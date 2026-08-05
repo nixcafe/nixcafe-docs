@@ -62,6 +62,7 @@ export default defineConfig({
         { text: 'Module System', link: '/modules' },
         { text: 'Directory Structure', link: '/directory-structure' },
         { text: 'Systems & Homes', link: '/systems-homes' },
+        { text: 'Host Meta', link: '/meta' },
         { text: 'hydraJobs', link: '/hydrajobs' },
       ],
     },
