@@ -1,151 +1,93 @@
-Default to using Bun instead of Node.js.
+# nixcafe-docs
 
-- Use `bun <file>` instead of `node <file>` or `ts-node <file>`
-- Use `bun test` instead of `jest` or `vitest`
-- Use `bun build <file.html|file.ts|file.css>` instead of `webpack` or `esbuild`
-- Use `bun install` instead of `npm install` or `yarn install` or `pnpm install`
-- Use `bun run <script>` instead of `npm run <script>` or `yarn run <script>` or `pnpm run <script>`
-- Use `bunx <package> <command>` instead of `npx <package> <command>`
-- Bun automatically loads .env, so don't use dotenv.
+Documentation monorepo for nixcafe.org. It contains four Vocs sites and a shared
+theme package, all managed with Bun workspaces.
 
-## Project: nixcafe-docs
+## Bun conventions
 
-This is a **monorepo** using Bun workspaces. All dependencies are installed at the root.
+Use Bun instead of Node.js tooling:
 
-### Workspaces
+- `bun install` instead of `npm install`, `yarn install`, or `pnpm install`
+- `bun run <script>` instead of `npm run <script>`
+- `bunx <package> <command>` instead of `npx`
+- `bun test` instead of Jest or Vitest
+- `bun <file>` instead of `node <file>` or `ts-node <file>`
 
-| Workspace                  | Path                              | Purpose                                            |
-| -------------------------- | --------------------------------- | -------------------------------------------------- |
-| `landing`                  | `apps/landing/`                   | nixcafe.org — landing page & project hub           |
-| `purr-docs`                | `apps/purr-docs/`                 | purr framework documentation                       |
-| `develop-templates-docs`   | `apps/develop-templates/`         | develop-templates documentation                     |
-| `cattery-modules-docs`     | `apps/cattery-modules/`           | cattery-modules documentation                       |
-| `shared-theme`             | `packages/shared-theme/`          | shared Vocs theme config                           |
+Bun loads `.env` automatically, so do not add dotenv. Prefer Bun APIs when you write
+new TypeScript, but most code in this repo is Vocs configuration and MDX content.
 
-### Commands
+## Workspaces
 
-- `bun dev` — start all doc sites in dev mode
-- `bun run --filter <workspace> dev` — start a specific site (e.g., `landing`, `purr-docs`, `develop-templates-docs`)
-- `bun run build` — build all sites
-- `bun fmt` — format all files with biome
-- `bun lint` — lint all files with biome
-- `bun check` — format check + lint (read-only)
-- `bun typecheck` — run tsc --noEmit across all workspaces
-- `bun test` — run all tests
-- `bun ci:check` — full PR check pipeline (biome ci + typecheck + test)
+Dependencies are installed once at the root.
 
-### Tech Stack
+| Workspace | Path | Purpose |
+|---|---|---|
+| `landing` | `apps/landing/` | nixcafe.org landing page |
+| `purr-docs` | `apps/purr-docs/` | purr documentation |
+| `develop-templates-docs` | `apps/develop-templates/` | develop-templates documentation |
+| `cattery-modules-docs` | `apps/cattery-modules/` | cattery documentation |
+| `shared-theme` | `packages/shared-theme/` | shared Vocs theme (`defineNixcafeTheme`) |
 
-- **Vocs** (vocs.dev) — static documentation generator (React + MDX + Waku)
-- **Bun** — package manager & workspace orchestration
-- **Biome** — formatter & linter (biome.json)
-- **TypeScript** — type checking via tsc
-- **Nix** — dev environment & dependency management (flake.nix)
-- **purr** — Nix flake framework with automatic discovery
-- **git-hooks.nix** — pre-commit hooks (biome + typecheck + test)
+## Commands
 
-### Adding New Doc Sites
+| Command | Action |
+|---|---|
+| `bun dev` | Start all sites |
+| `bun run --filter <workspace> dev` | Start one site |
+| `bun run build` | Build all sites |
+| `bun run --filter <workspace> build` | Build one site |
+| `bun fmt` | Format all files with Biome |
+| `bun lint` | Lint all files with Biome |
+| `bun check` | Check formatting and lint without writing |
+| `bun typecheck` | Run `tsc --noEmit` in every workspace |
+| `bun test` | Run tests |
+| `bun ci:check` | Run the PR pipeline: `biome ci`, typecheck, test |
 
-1. Create under `apps/<name>/` with `package.json`, `vocs.config.ts`, `tsconfig.json`
-2. Add `"shared-theme": "workspace:*"` dependency
-3. Import `defineNixcafeTheme` in `vocs.config.ts`
+Do not use `bun build` for the sites. That is Bun's bundler. Use `bun run build` to
+run the Vocs build scripts.
 
-### Contributing
+## Repository layout
 
-Follow **GitHub Flow** — use feature branches off `main` and open PRs. See `CONTRIBUTING.md` for details.
-
-## APIs
-
-- `Bun.serve()` supports WebSockets, HTTPS, and routes. Don't use `express`.
-- `bun:sqlite` for SQLite. Don't use `better-sqlite3`.
-- `Bun.redis` for Redis. Don't use `ioredis`.
-- `Bun.sql` for Postgres. Don't use `pg` or `postgres.js`.
-- `WebSocket` is built-in. Don't use `ws`.
-- Prefer `Bun.file` over `node:fs`'s readFile/writeFile
-- Bun.$`ls` instead of execa.
-
-## Testing
-
-Use `bun test` to run tests.
-
-```ts#index.test.ts
-import { test, expect } from "bun:test";
-
-test("hello world", () => {
-  expect(1).toBe(1);
-});
+```text
+apps/<site>/src/pages/*.mdx   Site pages
+apps/<site>/vocs.config.ts    Site title, sidebar, metadata, edit link
+apps/<site>/public/           Static files such as CNAME and logos
+packages/shared-theme/        Shared theme options
+develop/shells/default/       Nix dev shell and pre-commit hooks
+develop/checks/git-hooks/     Standalone pre-commit check
+flake.nix                     Flake using purr/mkFlake
 ```
 
-## Frontend
+`src/pages.gen.ts` and `dist/` are generated. Do not edit them.
 
-Use HTML imports with `Bun.serve()`. Don't use `vite`. HTML imports fully support React, CSS, Tailwind.
+## Adding a page
 
-Server:
+1. Add an `.mdx` file under `apps/<site>/src/pages/`.
+2. Add frontmatter with `title` and `description`.
+3. Add the page to the sidebar in that site's `vocs.config.ts`.
 
-```ts#index.ts
-import index from "./index.html"
+Use site-root links such as `/quick-start` for pages in the same site. External
+project links point at the deployed sites.
 
-Bun.serve({
-  routes: {
-    "/": index,
-    "/api/users/:id": {
-      GET: (req) => {
-        return new Response(JSON.stringify({ id: req.params.id }));
-      },
-    },
-  },
-  // optional websocket support
-  websocket: {
-    open: (ws) => {
-      ws.send("Hello, world!");
-    },
-    message: (ws, message) => {
-      ws.send(message);
-    },
-    close: (ws) => {
-      // handle close
-    }
-  },
-  development: {
-    hmr: true,
-    console: true,
-  }
-})
-```
+## Adding a site
 
-HTML files can import .tsx, .jsx or .js files directly and Bun's bundler will transpile & bundle automatically. `<link>` tags can point to stylesheets and Bun's CSS bundler will bundle.
+1. Create `apps/<name>/` with `package.json`, `vocs.config.ts`, and `tsconfig.json`.
+2. Add `"shared-theme": "workspace:*"` to dependencies.
+3. Spread `defineNixcafeTheme({ title, baseUrl })` into the Vocs config.
+4. Add a deploy workflow if the site needs its own domain.
 
-```html#index.html
-<html>
-  <body>
-    <h1>Hello, world!</h1>
-    <script type="module" src="./frontend.tsx"></script>
-  </body>
-</html>
-```
+## Style
 
-With the following `frontend.tsx`:
+Biome formats TypeScript and JSON. The config uses single quotes, no semicolons,
+trailing commas, two-space indentation, and a 100 character line width. Run
+`bun fmt` for a full format, or format only the files you changed to keep the diff
+focused.
 
-```tsx#frontend.tsx
-import React from "react";
-import { createRoot } from "react-dom/client";
+For documentation, write direct prose and keep commands, paths, and option names
+exact. Check claims about page counts, templates, and module counts against the
+source before changing them.
 
-// import .css files directly and it works
-import './index.css';
+## Contributing
 
-const root = createRoot(document.body);
-
-export default function Frontend() {
-  return <h1>Hello, world!</h1>;
-}
-
-root.render(<Frontend />);
-```
-
-Then, run index.ts
-
-```sh
-bun --hot ./index.ts
-```
-
-For more information, read the Bun API docs in `node_modules/bun-types/docs/**.mdx`.
+Use a feature branch off `main` and open a pull request. Run `bun ci:check` before
+submitting. See `CONTRIBUTING.md`.

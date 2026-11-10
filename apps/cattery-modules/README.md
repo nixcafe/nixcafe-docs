@@ -1,6 +1,6 @@
 # cattery-modules-docs
 
-cattery-modules documentation — built with [Vocs](https://vocs.dev).
+cattery-modules documentation, built with [Vocs](https://vocs.dev).
 
 ## Dev
 

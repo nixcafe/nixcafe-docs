@@ -7,7 +7,7 @@ export default defineConfig({
     baseUrl: 'https://nixcafe.org',
   }),
   accentColor: '#888888',
-  description: 'nixcafe - Nix scaffolding tools and frameworks for modern development',
+  description: 'nixcafe - Nix flake and NixOS tools, modules, and project templates',
   renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   head: () => ({
@@ -30,14 +30,14 @@ export default defineConfig({
               '@type': 'Organization',
               name: 'nixcafe',
               url: 'https://nixcafe.org',
-              description: 'Nix scaffolding tools and frameworks for modern development',
+              description: 'Nix flake and NixOS tools, modules, and project templates',
               sameAs: ['https://github.com/nixcafe'],
             },
             {
               '@type': 'WebSite',
               name: 'nixcafe',
               url: 'https://nixcafe.org',
-              description: 'Nix scaffolding tools and frameworks for modern development',
+              description: 'Nix flake and NixOS tools, modules, and project templates',
               potentialAction: {
                 '@type': 'SearchAction',
                 target: {

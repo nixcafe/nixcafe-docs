@@ -6,7 +6,7 @@ export default defineConfig({
     title: 'cattery',
     baseUrl: 'https://cattery.nixcafe.org',
   }),
-  description: 'cattery — quick-start NixOS configurations with room-based module bundles',
+  description: 'cattery: NixOS, nix-darwin, and home-manager modules organized as room profiles',
   renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   head: () => ({
@@ -34,8 +34,7 @@ export default defineConfig({
             {
               '@type': 'SoftwareSourceCode',
               name: 'cattery',
-              description:
-                'Quick-start NixOS configurations — choose a room, get a complete system',
+              description: 'NixOS, nix-darwin, and home-manager modules organized as room profiles',
               url: 'https://cattery.nixcafe.org',
               codeRepository: 'https://github.com/nixcafe/cattery-modules',
               programmingLanguage: 'Nix',
@@ -46,7 +45,7 @@ export default defineConfig({
               '@type': 'WebSite',
               name: 'cattery',
               url: 'https://cattery.nixcafe.org',
-              description: 'cattery — NixOS quick-start module documentation',
+              description: 'cattery module documentation',
             },
           ],
         },
