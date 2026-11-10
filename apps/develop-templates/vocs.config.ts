@@ -3,10 +3,10 @@ import { defineConfig } from 'vocs/config'
 
 export default defineConfig({
   ...defineNixcafeTheme({
-    title: 'develop-templates',
+    title: 'templates',
     baseUrl: 'https://templates.nixcafe.org',
   }),
-  description: 'develop-templates - Nix flake templates for reproducible development environments',
+  description: 'templates - Nix flake templates for reproducible development environments',
   renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   head: () => ({
@@ -33,7 +33,7 @@ export default defineConfig({
           '@graph': [
             {
               '@type': 'SoftwareSourceCode',
-              name: 'develop-templates',
+              name: 'templates',
               description: 'Nix flake templates for reproducible development environments',
               url: 'https://templates.nixcafe.org',
               codeRepository: 'https://github.com/nixcafe/develop-templates',
@@ -43,9 +43,9 @@ export default defineConfig({
             },
             {
               '@type': 'WebSite',
-              name: 'develop-templates',
+              name: 'templates',
               url: 'https://templates.nixcafe.org',
-              description: 'develop-templates - Nix flake templates documentation',
+              description: 'templates - Nix flake templates documentation',
             },
           ],
         },

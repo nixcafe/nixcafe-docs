@@ -62,7 +62,7 @@ export default defineConfig({
       items: [
         { text: 'purr', link: 'https://purr.nixcafe.org' },
         { text: 'cattery', link: 'https://cattery.nixcafe.org' },
-        { text: 'develop-templates', link: 'https://templates.nixcafe.org' },
+        { text: 'templates', link: 'https://templates.nixcafe.org' },
       ],
     },
     {
