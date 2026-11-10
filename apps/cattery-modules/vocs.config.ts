@@ -65,6 +65,7 @@ export default defineConfig({
         { text: 'Rooms', link: '/rooms' },
         { text: 'Modules', link: '/modules' },
         { text: 'Secrets & agenix', link: '/secrets' },
+        { text: 'Impermanence', link: '/impermanence' },
       ],
     },
     {

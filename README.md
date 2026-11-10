@@ -12,7 +12,7 @@
 | **landing** | [nixcafe.org](https://nixcafe.org) | `apps/landing/` | Project hub |
 | **purr** | [purr.nixcafe.org](https://purr.nixcafe.org) | `apps/purr-docs/` | 9 pages: quick start, flake-parts, mkFlake, modules, directory structure, systems and homes, host meta, hydraJobs, and an API reference for the exported functions |
 | **develop-templates** | [templates.nixcafe.org](https://templates.nixcafe.org) | `apps/develop-templates/` | 4 pages: quick start, catalog of 13 templates, and contributing |
-| **cattery** | [cattery.nixcafe.org](https://cattery.nixcafe.org) | `apps/cattery-modules/` | 6 pages: quick start, rooms, module catalog, secrets with agenix, and contributing |
+| **cattery** | [cattery.nixcafe.org](https://cattery.nixcafe.org) | `apps/cattery-modules/` | 7 pages: quick start, rooms, module catalog, secrets with agenix, impermanence, and contributing |
 
 ## Structure
 
