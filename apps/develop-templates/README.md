@@ -1,6 +1,6 @@
 # develop-templates-docs
 
-develop-templates documentation — built with [Vocs](https://vocs.dev).
+Documentation for develop-templates. Built with [Vocs](https://vocs.dev).
 
 ## Dev
 

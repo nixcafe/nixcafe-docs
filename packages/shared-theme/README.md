@@ -18,4 +18,11 @@ export default defineConfig({
 
 ## Exports
 
-- `defineNixcafeTheme(options)` — Returns a partial Vocs config with nixcafe branding
+- `defineNixcafeTheme(options)`: returns a partial Vocs config with nixcafe branding.
+  It sets the accent color, dark color scheme, logo and icon paths, GitHub social
+  link, and default metadata.
+
+Options:
+
+- `title`: site title.
+- `baseUrl`: deployed base URL, used for the sitemap link.

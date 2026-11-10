@@ -1,6 +1,6 @@
 ---
 title: nixcafe
-description: Nix scaffolding tools and frameworks
+description: Nix flake and NixOS tools, modules, and project templates
 layout: blank
 ---
 
@@ -14,14 +14,14 @@ layout: blank
 <div className="hero">
   <h1>nixcafe</h1>
   <p>
-    Opinionated Nix tooling for modern development.
-    Start from a single config, not a hundred lines of Nix.
+    Tools and templates for Nix flakes and NixOS configurations.
+    Start with a small config and add what you need.
   </p>
   <div className="hero-tags">
-    <span>reproducible</span>
-    <span>composable</span>
-    <span>zero boilerplate</span>
-    <span>nix native</span>
+    <span>flakes</span>
+    <span>auto-discovery</span>
+    <span>NixOS</span>
+    <span>home-manager</span>
   </div>
 </div>
 
@@ -30,21 +30,26 @@ layout: blank
   <div className="projects">
     <a className="project-card" href="https://purr.nixcafe.org">
       <span className="project-name">purr</span>
-      <span className="project-desc">Nix flake framework with auto-discovery and a rich module system</span>
+      <span className="project-desc">
+        Flake framework that discovers modules, packages, shells, systems, and homes
+        from directory conventions
+      </span>
       <span className="project-arrow">&rarr;</span>
     </a>
     <a className="project-card" href="https://cattery.nixcafe.org">
       <span className="project-name">cattery</span>
       <span className="project-desc">
-        Quick-start NixOS configurations &mdash; choose a room, get a complete system
+        NixOS, nix-darwin, and home-manager modules grouped into rooms. Enable a room
+        to get a working desktop or server.
         <code className="project-cmd">cattery.room.desktop.dev.enable = true;</code>
       </span>
       <span className="project-arrow">&rarr;</span>
     </a>
     <a className="project-card" href="https://templates.nixcafe.org">
-      <span className="project-name">templates</span>
+      <span className="project-name">develop-templates</span>
       <span className="project-desc">
-        Curated Nix flake project templates
+        Nix flake templates for development environments, NixOS configurations, and
+        secrets. 13 templates.
         <code className="project-cmd">nix flake init -t beans#node</code>
       </span>
       <span className="project-arrow">&rarr;</span>

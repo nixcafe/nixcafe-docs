@@ -6,7 +6,7 @@ export default defineConfig({
     title: 'purr',
     baseUrl: 'https://purr.nixcafe.org',
   }),
-  description: 'purr - Nix flake framework with automatic discovery and module system',
+  description: 'Nix flake framework based on directory layout, namespaces, and modules',
   renderStrategy: 'full-static',
   checkDeadlinks: 'warn',
   head: () => ({
@@ -30,7 +30,7 @@ export default defineConfig({
             {
               '@type': 'SoftwareSourceCode',
               name: 'purr',
-              description: 'Nix flake framework with automatic discovery and module system',
+              description: 'Nix flake framework based on directory layout, namespaces, and modules',
               url: 'https://purr.nixcafe.org',
               codeRepository: 'https://github.com/nixcafe/purr',
               programmingLanguage: 'Nix',
@@ -41,7 +41,7 @@ export default defineConfig({
               '@type': 'WebSite',
               name: 'purr',
               url: 'https://purr.nixcafe.org',
-              description: 'purr - Nix flake framework documentation',
+              description: 'purr documentation',
             },
           ],
         },

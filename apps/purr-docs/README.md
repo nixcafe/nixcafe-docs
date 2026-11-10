@@ -1,6 +1,6 @@
 # purr-docs
 
-purr framework documentation — built with [Vocs](https://vocs.dev).
+purr documentation, built with [Vocs](https://vocs.dev).
 
 ## Dev
 
